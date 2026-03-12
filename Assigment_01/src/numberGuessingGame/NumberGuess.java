@@ -1,4 +1,4 @@
-package Game;
+package numberGuessingGame;
 
 import java.util.Scanner;
 import java.util.Random;
