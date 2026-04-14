@@ -1,0 +1,109 @@
+-- List all countries along with their region names
+SELECT c.COUNTRY_NAME, r.REGION_NAME
+FROM COUNTRIES c
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID;
+
+-- . List all locations along with their country names
+SELECT l.CITY, c.COUNTRY_NAME
+FROM LOCATIONS l
+JOIN COUNTRIES c ON l.COUNTRY_ID = c.COUNTRY_ID;
+
+-- Find all regions, including those without any countries
+SELECT r.REGION_NAME, c.COUNTRY_NAME
+FROM REGIONS r
+LEFT JOIN COUNTRIES c ON r.REGION_ID = c.REGION_ID;
+
+-- Find all countries, including those without any locations
+SELECT c.COUNTRY_NAME, l.CITY
+FROM COUNTRIES c
+LEFT JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID;
+
+-- Get the count of countries in each region
+SELECT r.REGION_NAME, COUNT(c.COUNTRY_ID) AS country_count
+FROM REGIONS r
+LEFT JOIN COUNTRIES c ON r.REGION_ID = c.REGION_ID
+GROUP BY r.REGION_NAME;
+
+-- . Get the count of locations in each country
+SELECT c.COUNTRY_NAME, COUNT(l.LOCATION_ID) AS location_count
+FROM COUNTRIES c
+LEFT JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID
+GROUP BY c.COUNTRY_NAME; 
+
+-- List regions that have more than 5 countries
+SELECT r.REGION_NAME, COUNT(c.COUNTRY_ID) AS total_countries
+FROM REGIONS r
+JOIN COUNTRIES c ON r.REGION_ID = c.REGION_ID
+GROUP BY r.REGION_NAME
+HAVING COUNT(c.COUNTRY_ID) > 5; 
+
+-- Region name, country name, and number of locations per country
+SELECT r.REGION_NAME, c.COUNTRY_NAME, COUNT(l.LOCATION_ID) AS total_locations
+FROM REGIONS r
+JOIN COUNTRIES c ON r.REGION_ID = c.REGION_ID
+LEFT JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID
+GROUP BY r.REGION_NAME, c.COUNTRY_NAME;
+
+-- Countries in "Asia"
+SELECT c.COUNTRY_NAME
+FROM COUNTRIES c
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID
+WHERE r.REGION_NAME = 'Asia'; 
+
+-- Countries in "Americas" with at least one location
+SELECT DISTINCT c.COUNTRY_NAME
+FROM COUNTRIES c
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID
+JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID
+WHERE r.REGION_NAME = 'Americas';  
+
+-- . Cities in "Europe" with country names
+SELECT l.CITY, c.COUNTRY_NAME
+FROM LOCATIONS l
+JOIN COUNTRIES c ON l.COUNTRY_ID = c.COUNTRY_ID
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID
+WHERE r.REGION_NAME = 'Europe'; 
+
+-- . Count countries in "Middle East and Asia"
+SELECT COUNT(*) AS total_countries
+FROM COUNTRIES c
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID
+WHERE r.REGION_NAME = 'Middle East and Africa' ;
+
+--  Regions with number of countries
+SELECT r.REGION_NAME, COUNT(c.COUNTRY_ID) AS total_countries
+FROM REGIONS r
+LEFT JOIN COUNTRIES c ON r.REGION_ID = c.REGION_ID
+GROUP BY r.REGION_NAME;
+
+-- Countries without locations
+SELECT c.COUNTRY_NAME
+FROM COUNTRIES c
+LEFT JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID
+WHERE l.LOCATION_ID IS NULL;
+
+-- Countries with region "Europe" or "Asia"
+SELECT c.COUNTRY_NAME, r.REGION_NAME
+FROM COUNTRIES c
+JOIN REGIONS r ON c.REGION_ID = r.REGION_ID
+WHERE r.REGION_NAME IN ('Europe', 'Asia');
+
+-- . Locations in "Italy"
+SELECT l.CITY, l.POSTAL_CODE
+FROM LOCATIONS l
+JOIN COUNTRIES c ON l.COUNTRY_ID = c.COUNTRY_ID
+WHERE c.COUNTRY_NAME = 'Italy';
+
+-- Countries with more than one location
+SELECT c.COUNTRY_NAME, COUNT(l.LOCATION_ID) AS total_locations
+FROM COUNTRIES c
+JOIN LOCATIONS l ON c.COUNTRY_ID = l.COUNTRY_ID
+GROUP BY c.COUNTRY_NAME
+HAVING COUNT(l.LOCATION_ID) > 1;    
+
+-- Locations in Canada & USA
+SELECT c.COUNTRY_NAME, l.CITY, l.STATE_PROVINCE
+FROM LOCATIONS l
+JOIN COUNTRIES c ON l.COUNTRY_ID = c.COUNTRY_ID
+WHERE c.COUNTRY_NAME IN ('Canada', 'USA');
+ 

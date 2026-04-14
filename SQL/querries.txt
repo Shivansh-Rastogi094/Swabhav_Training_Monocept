@@ -1,0 +1,43 @@
+ show details of all employee
+#1. Display all employee names in ascending order
+#2. Display all employees(all columns) in department 20 and 30
+#3. Display all the employees who are managers
+#4. Display all the employees whose salary is between 2000 and 5000
+#5. Display all the employees whose commission is null
+#6. Display emp_name,salary,comission,ctc(calculated column)
+#7. Display hire_date, current_date, tenure(calculated col) of the empl
+#8. Display all the employees whose name starts with s
+#9. Display unique department numbers from the employee table
+ #10. Display emp_name and job in lower case
+
+
+
+
+11. Select top 3 salary earning employee
+#12. Select clerks and Managers in department 10
+#13. Display all clerks in asscending order of the department number 
+#16. Display All employees in the same dept of 'SCOTT' 
+#17. Employees having same designation of SMITH
+#18. Employee who are reproting under KING
+#19. Employees who have same salary of BLAKE
+#20. Display departmentwise number of employees
+#21. Display jobwise number of employees
+#22. Display deptwise jobwise number of employees
+#23. Display deptwise  employees greater than  3 
+#24. Display designation wise employees count greater than 3 
+#25. Display Employee name,deptname and location
+
+
+
+
+
+26. display all deptnames and corresponding employees if ANY
+#27. dipslay all deptnames where there are no employees
+#28. display deptname wise employee count greater than 3, display in descending order of deptname
+#29. Display all the empname and their manager names
+
+
+30. Display empname,deptname and manager name as bossname , order by bossname
+
+
+#31. Display Dname, employee name and names of their managers

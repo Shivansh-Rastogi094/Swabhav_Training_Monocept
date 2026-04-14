@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" viewBox="0 0 900 1500" style="background:#ffffff; font-family: Arial, sans-serif;">
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="tri" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M1 1L11 6L1 11Z" fill="white" stroke="#4455aa" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════
+       TITLE
+  ════════════════════════════════════════ -->
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">TicTacToe — Facade Design Pattern · Class Diagram</text>
+  <line x1="60" y1="38" x2="840" y2="38" stroke="#ccc" stroke-width="1"/>
+
+  <!-- ═══════════════════════════════════════
+       LEGEND
+  ════════════════════════════════════════ -->
+  <rect x="620" y="46" width="248" height="80" rx="6" fill="#f9f9f9" stroke="#ccc" stroke-width="0.8"/>
+  <text x="744" y="64" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">Legend</text>
+  <line x1="634" y1="76" x2="674" y2="76" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="680" y="80" font-size="10" fill="#444">Uses / Creates</text>
+  <line x1="634" y1="96" x2="674" y2="96" stroke="#555" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <text x="680" y="100" font-size="10" fill="#444">Conditional Create</text>
+  <line x1="634" y1="116" x2="674" y2="116" stroke="#4455aa" stroke-width="1.5" marker-end="url(#tri)"/>
+  <text x="680" y="120" font-size="10" fill="#444">Extends (Inheritance)</text>
+
+  <!-- visibility key -->
+  <text x="634" y="136" font-size="10" fill="#555">+  public    —  private    «static»  static method</text>
+
+  <!-- ═══════════════════════════════════════
+       1. Main  (x=330, y=52, w=220)
+  ════════════════════════════════════════ -->
+  <!-- header -->
+  <rect x="330" y="52" width="220" height="28" rx="6" fill="#b0b0b0" stroke="#777" stroke-width="0.8"/>
+  <text x="440" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Main</text>
+  <!-- fields -->
+  <rect x="330" y="80" width="220" height="22" fill="#e8e8e8" stroke="#777" stroke-width="0.8"/>
+  <text x="340" y="95" font-size="10" font-weight="bold" fill="#666">fields</text>
+  <rect x="330" y="102" width="220" height="20" fill="#f5f5f5" stroke="#777" stroke-width="0.8"/>
+  <text x="340" y="116" font-size="10" fill="#333" font-family="Courier New, monospace">— sc : Scanner</text>
+  <!-- methods -->
+  <rect x="330" y="122" width="220" height="22" fill="#e8e8e8" stroke="#777" stroke-width="0.8"/>
+  <text x="340" y="137" font-size="10" font-weight="bold" fill="#666">methods</text>
+  <rect x="330" y="144" width="220" height="20" rx="0" fill="#f5f5f5" stroke="#777" stroke-width="0.8"/>
+  <rect x="330" y="144" width="220" height="26" rx="0" ry="0" fill="none" stroke="none"/>
+  <!-- bottom rounded -->
+  <rect x="330" y="150" width="220" height="20" rx="6" fill="#f5f5f5" stroke="#777" stroke-width="0.8"/>
+  <rect x="330" y="144" width="220" height="16" fill="#f5f5f5" stroke="none"/>
+  <line x1="330" y1="150" x2="550" y2="150" stroke="#777" stroke-width="0.8"/>
+  <text x="340" y="162" font-size="10" fill="#333" font-family="Courier New, monospace">+ main(args : String[]) : void</text>
+
+  <!-- ═══════════════════════════════════════
+       Arrow: Main → Facade
+  ════════════════════════════════════════ -->
+  <line x1="440" y1="170" x2="440" y2="210" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="448" y="194" font-size="10" fill="#666">calls</text>
+
+  <!-- ═══════════════════════════════════════
+       2. TicTacToeFacade  (x=280, y=210, w=320)
+  ════════════════════════════════════════ -->
+  <!-- FACADE badge -->
+  <rect x="518" y="203" width="64" height="16" rx="8" fill="#534AB7"/>
+  <text x="550" y="214" text-anchor="middle" font-size="9" font-weight="bold" fill="#CECBF6">FACADE</text>
+
+  <rect x="280" y="210" width="320" height="28" rx="6" fill="#b3a9f0" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="440" y="228" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a0060">TicTacToeFacade</text>
+  <!-- fields -->
+  <rect x="280" y="238" width="320" height="22" fill="#e4e0f8" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="253" font-size="10" font-weight="bold" fill="#534AB7">fields</text>
+  <rect x="280" y="260" width="320" height="20" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="274" font-size="10" fill="#222" font-family="Courier New, monospace">— sc : Scanner</text>
+  <!-- methods -->
+  <rect x="280" y="280" width="320" height="22" fill="#e4e0f8" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="295" font-size="10" font-weight="bold" fill="#534AB7">methods</text>
+  <rect x="280" y="302" width="320" height="20" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="316" font-size="10" fill="#222" font-family="Courier New, monospace">+ showMenu() : void</text>
+  <rect x="280" y="322" width="320" height="20" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="336" font-size="10" fill="#222" font-family="Courier New, monospace">+ handleMenuChoice(choice:int) : boolean</text>
+  <rect x="280" y="342" width="320" height="20" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="356" font-size="10" fill="#222" font-family="Courier New, monospace">+ startPlayerVsPlayer() : void</text>
+  <rect x="280" y="362" width="320" height="20" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="376" font-size="10" fill="#222" font-family="Courier New, monospace">+ startPlayerVsComputer() : void</text>
+  <rect x="280" y="382" width="320" height="20" rx="6" fill="#f3f1fd" stroke="#534AB7" stroke-width="0.8"/>
+  <rect x="280" y="382" width="320" height="14" fill="#f3f1fd" stroke="none"/>
+  <line x1="280" y1="388" x2="600" y2="388" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="292" y="396" font-size="10" fill="#222" font-family="Courier New, monospace">+ closeResources() : void</text>
+
+  <!-- ═══════════════════════════════════════
+       Arrow: Facade → GameManager
+  ════════════════════════════════════════ -->
+  <line x1="440" y1="402" x2="440" y2="446" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="448" y="428" font-size="10" fill="#666">creates</text>
+
+  <!-- ═══════════════════════════════════════
+       3. GameManager  (x=180, y=446, w=520)
+  ════════════════════════════════════════ -->
+  <rect x="180" y="446" width="520" height="28" rx="6" fill="#5DCAA5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="440" y="464" text-anchor="middle" font-size="13" font-weight="bold" fill="#04342C">GameManager</text>
+  <!-- fields -->
+  <rect x="180" y="474" width="520" height="22" fill="#c5eee3" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="489" font-size="10" font-weight="bold" fill="#0F6E56">fields</text>
+  <rect x="180" y="496" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="510" font-size="10" fill="#222" font-family="Courier New, monospace">— board : Board</text>
+  <rect x="180" y="516" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="530" font-size="10" fill="#222" font-family="Courier New, monospace">— player1 : Player</text>
+  <rect x="180" y="536" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="550" font-size="10" fill="#222" font-family="Courier New, monospace">— player2 : Player</text>
+  <rect x="180" y="556" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="570" font-size="10" fill="#222" font-family="Courier New, monospace">— vsComputer : boolean</text>
+  <rect x="180" y="576" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="590" font-size="10" fill="#222" font-family="Courier New, monospace">— sc : Scanner</text>
+  <!-- methods -->
+  <rect x="180" y="596" width="520" height="22" fill="#c5eee3" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="611" font-size="10" font-weight="bold" fill="#0F6E56">methods</text>
+  <rect x="180" y="618" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="632" font-size="10" fill="#222" font-family="Courier New, monospace">+ GameManager(p1:String, p2:String, vsComputer:boolean)  throws Exception</text>
+  <rect x="180" y="638" width="520" height="20" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="652" font-size="10" fill="#222" font-family="Courier New, monospace">+ startGame() : void   [ uses Board · MoveValidator · WinChecker · Player ]</text>
+  <rect x="180" y="658" width="520" height="20" rx="6" fill="#edf9f5" stroke="#0F6E56" stroke-width="0.8"/>
+  <rect x="180" y="658" width="520" height="14" fill="#edf9f5" stroke="none"/>
+  <line x1="180" y1="664" x2="700" y2="664" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="192" y="672" font-size="10" fill="#888" font-family="Courier New, monospace">     ↳ casts Player → ComputerPlayer when vsComputer = true</text>
+
+  <!-- ═══════════════════════════════════════
+       Arrows: GameManager → Board / MoveValidator / WinChecker
+  ════════════════════════════════════════ -->
+  <!-- → Board -->
+  <path d="M280 678 L280 730 L110 730 L110 756" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="116" y="748" font-size="10" fill="#666">uses</text>
+  <!-- → MoveValidator -->
+  <line x1="440" y1="678" x2="440" y2="756" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="448" y="722" font-size="10" fill="#666">uses</text>
+  <!-- → WinChecker -->
+  <path d="M600 678 L600 730 L710 730 L710 756" fill="none" stroke="#555" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="640" y="748" font-size="10" fill="#666">uses</text>
+
+  <!-- ═══════════════════════════════════════
+       4. Board  (x=20, y=756, w=200)
+  ════════════════════════════════════════ -->
+  <rect x="20" y="756" width="200" height="28" rx="6" fill="#f0997b" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="120" y="774" text-anchor="middle" font-size="13" font-weight="bold" fill="#4A1B0C">Board</text>
+  <rect x="20" y="784" width="200" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="799" font-size="10" font-weight="bold" fill="#993C1D">fields</text>
+  <rect x="20" y="806" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="820" font-size="10" fill="#222" font-family="Courier New, monospace">— grid : char[][]</text>
+  <rect x="20" y="826" width="200" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="841" font-size="10" font-weight="bold" fill="#993C1D">methods</text>
+  <rect x="20" y="848" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="862" font-size="10" fill="#222" font-family="Courier New, monospace">+ Board()</text>
+  <rect x="20" y="868" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="882" font-size="10" fill="#222" font-family="Courier New, monospace">+ display() : void</text>
+  <rect x="20" y="888" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="902" font-size="10" fill="#222" font-family="Courier New, monospace">+ placeMove(pos:int,</text>
+  <rect x="20" y="908" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="922" font-size="10" fill="#222" font-family="Courier New, monospace">    sym:char) : void</text>
+  <rect x="20" y="928" width="200" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="942" font-size="10" fill="#222" font-family="Courier New, monospace">+ getCell(pos:int) : char</text>
+  <rect x="20" y="948" width="200" height="20" rx="6" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <rect x="20" y="948" width="200" height="14" fill="#fef3ee" stroke="none"/>
+  <line x1="20" y1="954" x2="220" y2="954" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="32" y="962" font-size="10" fill="#222" font-family="Courier New, monospace">+ isFull() : boolean</text>
+
+  <!-- ═══════════════════════════════════════
+       5. MoveValidator  (x=258, y=756, w=240)
+  ════════════════════════════════════════ -->
+  <rect x="258" y="756" width="240" height="28" rx="6" fill="#f0997b" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="378" y="774" text-anchor="middle" font-size="13" font-weight="bold" fill="#4A1B0C">MoveValidator</text>
+  <rect x="258" y="784" width="240" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="799" font-size="10" font-weight="bold" fill="#993C1D">fields</text>
+  <rect x="258" y="806" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="820" font-size="10" fill="#888" font-family="Courier New, monospace">none (utility class)</text>
+  <rect x="258" y="826" width="240" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="841" font-size="10" font-weight="bold" fill="#993C1D">methods</text>
+  <rect x="258" y="848" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="862" font-size="10" fill="#222" font-family="Courier New, monospace">+ isValidMove(board:Board,</text>
+  <rect x="258" y="868" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="882" font-size="10" fill="#222" font-family="Courier New, monospace">    move:int) : boolean  «static»</text>
+  <rect x="258" y="888" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="902" font-size="10" fill="#888" font-family="Courier New, monospace">  checks range 1–9</text>
+  <rect x="258" y="908" width="240" height="20" rx="6" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <rect x="258" y="908" width="240" height="14" fill="#fef3ee" stroke="none"/>
+  <line x1="258" y1="914" x2="498" y2="914" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="270" y="922" font-size="10" fill="#888" font-family="Courier New, monospace">  checks cell != X or O</text>
+
+  <!-- ═══════════════════════════════════════
+       6. WinChecker  (x=530, y=756, w=240)
+  ════════════════════════════════════════ -->
+  <rect x="530" y="756" width="240" height="28" rx="6" fill="#f0997b" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="650" y="774" text-anchor="middle" font-size="13" font-weight="bold" fill="#4A1B0C">WinChecker</text>
+  <rect x="530" y="784" width="240" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="799" font-size="10" font-weight="bold" fill="#993C1D">fields</text>
+  <rect x="530" y="806" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="820" font-size="10" fill="#222" font-family="Courier New, monospace">— winPatterns : int[][]</text>
+  <rect x="530" y="826" width="240" height="22" fill="#fad5c4" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="841" font-size="10" font-weight="bold" fill="#993C1D">methods</text>
+  <rect x="530" y="848" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="862" font-size="10" fill="#222" font-family="Courier New, monospace">+ checkWin(board:Board,</text>
+  <rect x="530" y="868" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="882" font-size="10" fill="#222" font-family="Courier New, monospace">    symbol:char) : boolean  «static»</text>
+  <rect x="530" y="888" width="240" height="20" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="902" font-size="10" fill="#888" font-family="Courier New, monospace">  checks 3 rows, 3 columns</text>
+  <rect x="530" y="908" width="240" height="20" rx="6" fill="#fef3ee" stroke="#993C1D" stroke-width="0.8"/>
+  <rect x="530" y="908" width="240" height="14" fill="#fef3ee" stroke="none"/>
+  <line x1="530" y1="914" x2="770" y2="914" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="542" y="922" font-size="10" fill="#888" font-family="Courier New, monospace">  checks 2 diagonals</text>
+
+  <!-- ═══════════════════════════════════════
+       Arrows: GameManager → Player (dashed)
+               GameManager → ComputerPlayer (dashed)
+  ════════════════════════════════════════ -->
+  <path d="M320 678 L320 1000 L240 1000 L240 1042" fill="none" stroke="#555" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <text x="260" y="880" font-size="10" fill="#666">creates</text>
+
+  <path d="M560 678 L560 1000 L630 1000 L630 1042" fill="none" stroke="#555" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <text x="570" y="880" font-size="10" fill="#666">may create</text>
+
+  <!-- ═══════════════════════════════════════
+       7. Player  (x=60, y=1042, w=280)
+  ════════════════════════════════════════ -->
+  <rect x="60" y="1042" width="280" height="28" rx="6" fill="#85B7EB" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="200" y="1060" text-anchor="middle" font-size="13" font-weight="bold" fill="#042C53">Player</text>
+  <rect x="60" y="1070" width="280" height="22" fill="#cce0f5" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1085" font-size="10" font-weight="bold" fill="#185FA5">fields</text>
+  <rect x="60" y="1092" width="280" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1106" font-size="10" fill="#222" font-family="Courier New, monospace">— name : String</text>
+  <rect x="60" y="1112" width="280" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1126" font-size="10" fill="#222" font-family="Courier New, monospace">— symbol : char</text>
+  <rect x="60" y="1132" width="280" height="22" fill="#cce0f5" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1147" font-size="10" font-weight="bold" fill="#185FA5">methods</text>
+  <rect x="60" y="1154" width="280" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1168" font-size="10" fill="#222" font-family="Courier New, monospace">+ Player(name:String, symbol:char)</text>
+  <rect x="60" y="1174" width="280" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1188" font-size="10" fill="#888" font-family="Courier New, monospace">    throws Exception if name empty</text>
+  <rect x="60" y="1194" width="280" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1208" font-size="10" fill="#222" font-family="Courier New, monospace">+ getName() : String</text>
+  <rect x="60" y="1214" width="280" height="20" rx="6" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <rect x="60" y="1214" width="280" height="14" fill="#edf4fc" stroke="none"/>
+  <line x1="60" y1="1220" x2="340" y2="1220" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="72" y="1228" font-size="10" fill="#222" font-family="Courier New, monospace">+ getSymbol() : char</text>
+
+  <!-- ═══════════════════════════════════════
+       8. ComputerPlayer  (x=440, y=1042, w=320)
+  ════════════════════════════════════════ -->
+  <!-- "extends Player" tag -->
+  <text x="628" y="1038" text-anchor="middle" font-size="9" fill="#185FA5" font-style="italic">extends Player</text>
+
+  <rect x="440" y="1042" width="320" height="28" rx="6" fill="#85B7EB" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="600" y="1060" text-anchor="middle" font-size="13" font-weight="bold" fill="#042C53">ComputerPlayer</text>
+  <rect x="440" y="1070" width="320" height="22" fill="#cce0f5" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1085" font-size="10" font-weight="bold" fill="#185FA5">fields</text>
+  <rect x="440" y="1092" width="320" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1106" font-size="10" fill="#222" font-family="Courier New, monospace">— rand : Random</text>
+  <rect x="440" y="1112" width="320" height="22" fill="#cce0f5" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1127" font-size="10" font-weight="bold" fill="#185FA5">methods</text>
+  <rect x="440" y="1134" width="320" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1148" font-size="10" fill="#222" font-family="Courier New, monospace">+ ComputerPlayer(name:String,</text>
+  <rect x="440" y="1154" width="320" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1168" font-size="10" fill="#222" font-family="Courier New, monospace">    symbol:char)   calls super()</text>
+  <rect x="440" y="1174" width="320" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1188" font-size="10" fill="#222" font-family="Courier New, monospace">+ generateMove(board:Board) : int</text>
+  <rect x="440" y="1194" width="320" height="20" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1208" font-size="10" fill="#888" font-family="Courier New, monospace">    loops random 1–9 until valid</text>
+  <rect x="440" y="1214" width="320" height="20" rx="6" fill="#edf4fc" stroke="#185FA5" stroke-width="0.8"/>
+  <rect x="440" y="1214" width="320" height="14" fill="#edf4fc" stroke="none"/>
+  <line x1="440" y1="1220" x2="760" y2="1220" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="452" y="1228" font-size="10" fill="#888" font-family="Courier New, monospace">    uses MoveValidator.isValidMove()</text>
+
+  <!-- ═══════════════════════════════════════
+       Inheritance: ComputerPlayer → Player
+  ════════════════════════════════════════ -->
+  <line x1="440" y1="1056" x2="340" y2="1056" stroke="#4455aa" stroke-width="1.5" marker-end="url(#tri)"/>
+  <text x="372" y="1048" font-size="10" fill="#4455aa">extends</text>
+
+  <!-- ═══════════════════════════════════════
+       SUBSYSTEM BOUNDARY (dashed rect)
+  ════════════════════════════════════════ -->
+  <rect x="12" y="736" width="858" height="520" rx="10" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="22" y="752" font-size="10" fill="#aaa">Subsystem  (hidden from Main — only accessible via TicTacToeFacade)</text>
+
+  <!-- ═══════════════════════════════════════
+       COLOUR KEY FOOTER
+  ════════════════════════════════════════ -->
+  <line x1="60" y1="1272" x2="840" y2="1272" stroke="#ddd" stroke-width="1"/>
+  <text x="450" y="1290" text-anchor="middle" font-size="11" font-weight="bold" fill="#444">Colour Key</text>
+
+  <rect x="80"  y="1302" width="14" height="14" rx="3" fill="#b0b0b0" stroke="#777" stroke-width="0.8"/>
+  <text x="100" y="1313" font-size="10" fill="#444">Client (Main)</text>
+
+  <rect x="200" y="1302" width="14" height="14" rx="3" fill="#b3a9f0" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="220" y="1313" font-size="10" fill="#444">Facade layer</text>
+
+  <rect x="330" y="1302" width="14" height="14" rx="3" fill="#5DCAA5" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="350" y="1313" font-size="10" fill="#444">Orchestrator (GameManager)</text>
+
+  <rect x="530" y="1302" width="14" height="14" rx="3" fill="#f0997b" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="550" y="1313" font-size="10" fill="#444">Utility subsystem classes</text>
+
+  <rect x="720" y="1302" width="14" height="14" rx="3" fill="#85B7EB" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="740" y="1313" font-size="10" fill="#444">Player hierarchy</text>
+
+</svg>
