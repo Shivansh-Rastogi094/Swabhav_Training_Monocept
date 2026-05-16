@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Form</title>
+</head>
+<body>
+
+<h2>User Registration Form</h2>
+
+<form action="submit" method="post">
+
+   
+    Name: <input type="text" name="name" required><br><br>
+    Email: <input type="email" name="email" required><br><br>
+    Age: <input type="number" name="age"><br><br>
+    DOB: <input type="date" name="dob"><br><br>
+    City:
+    <select name="city">
+        <option value="Delhi">Delhi</option>
+        <option value="Noida">Noida</option>
+        <option value="Ghaziabad">Ghaziabad</option>
+        <option value="Gurgaon">Gurgaon</option>
+    </select>
+    <br><br>
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+    Skills:
+    <input type="checkbox" name="skills" value="Java"> Java
+    <input type="checkbox" name="skills" value="HTML"> HTML
+    <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+    <br><br>
+
+    About You:<br>
+    <textarea name="about" rows="4" cols="30"></textarea>
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
