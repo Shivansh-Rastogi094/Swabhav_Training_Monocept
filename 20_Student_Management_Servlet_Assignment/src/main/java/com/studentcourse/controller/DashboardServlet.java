@@ -19,6 +19,7 @@ public class DashboardServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        System.out.println("[LIFECYCLE] DashboardServlet: init() called. DAOs initialized.");
         studentDAO = new StudentDAO();
         courseDAO = new CourseDAO();
         registrationDAO = new RegistrationDAO();
@@ -27,6 +28,7 @@ public class DashboardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] DashboardServlet: doGet() called. Fetching dashboard counts.");
 
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("loggedInUser") == null) {
@@ -39,5 +41,17 @@ public class DashboardServlet extends HttpServlet {
         request.setAttribute("registrationCount", registrationDAO.getRegistrationCount());
 
         request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] DashboardServlet: doPost() called.");
+        doGet(request, response);
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("[LIFECYCLE] DashboardServlet: destroy() called.");
     }
 }

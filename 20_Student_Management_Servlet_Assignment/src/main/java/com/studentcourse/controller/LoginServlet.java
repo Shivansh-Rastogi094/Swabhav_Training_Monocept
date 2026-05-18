@@ -15,12 +15,21 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        System.out.println("[LIFECYCLE] LoginServlet: init() called. AdminDAO initialized.");
         adminDAO = new AdminDAO();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] LoginServlet: doGet() called.");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] LoginServlet: doPost() called. Processing credentials.");
 
         String username = request.getParameter("username");
         String pass = request.getParameter("password");
@@ -33,5 +42,10 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("error", "Invalid username or password.");
             request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
         }
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("[LIFECYCLE] LoginServlet: destroy() called.");
     }
 }

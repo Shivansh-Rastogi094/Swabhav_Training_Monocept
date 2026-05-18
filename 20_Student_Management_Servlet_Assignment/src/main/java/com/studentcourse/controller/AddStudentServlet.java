@@ -16,12 +16,14 @@ public class AddStudentServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        System.out.println("[LIFECYCLE] AddStudentServlet: init() called. StudentDAO initialized.");
         studentDAO = new StudentDAO();
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] AddStudentServlet: doGet() called. Loading student form.");
 
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("loggedInUser") == null) {
@@ -35,6 +37,7 @@ public class AddStudentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("[LIFECYCLE] AddStudentServlet: doPost() called. Registering new student.");
 
         String name = request.getParameter("studentName");
         String email = request.getParameter("email");
@@ -74,5 +77,10 @@ public class AddStudentServlet extends HttpServlet {
             request.setAttribute("error", "Database error occurred. Please try again.");
             request.getRequestDispatcher("/WEB-INF/views/student-form.jsp").forward(request, response);
         }
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("[LIFECYCLE] AddStudentServlet: destroy() called.");
     }
 }
